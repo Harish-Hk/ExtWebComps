@@ -1,14 +1,83 @@
+import '../charts/charttoolbar/ChartToolbar.js'
 import hljs from 'highlightjs';
 import 'highlightjs/styles/atom-one-dark.css';
 import './MainComponent.css';
 import './MainComponent.html';
 
 Ext.require([
-    'Ext.data.TreeStore'
+    'Ext.data.TreeStore',
+    'Ext.chart.series.Bar',
+    'Ext.chart.axis.Numeric',
+    'Ext.chart.axis.Category',
+    'Ext.data.*', 'Ext.grid.*'
 ]);
+
+Ext.define('User', {
+    extend: 'Ext.data.Model',
+    fields: ['id', 'name', 'year', 'pantone_value']
+});
+
+var storeee = Ext.create('Ext.data.Store', {
+    model: 'User',
+    proxy: {
+        type: 'rest',
+        url: 'https://reqres.in/api/products/5'
+    }
+});
+
+// Ext.define('Userstore', {
+//     extend: 'Ext.data.Model',
+//     fields: ['name', 'email', 'phone']
+// });
+// var Id = document.getElementById('gridId')
+// var userStore = Ext.create('Ext.data.Store', {
+//     model: 'Userstore',
+//     data: [
+//         { name: 'Lisa', email: 'lisa@simpsons.com', phone: '555-111-1224' },
+//         { name: 'Bart', email: 'bart@simpsons.com', phone: '555-222-1234' },
+//         { name: 'Homer', email: 'homer@simpsons.com', phone: '555-222-1244' },
+//         { name: 'Marge', email: 'marge@simpsons.com', phone: '555-222-1254' }
+//     ]
+// });
+
+// Ext.create('Ext.grid.Grid', {
+//     renderTo: Id,
+//     store: userStore,
+
+//     title: 'Application Users',
+//     columns: [
+//         {
+//             text: 'Name',
+//             width: 100,
+//             sortable: false,
+//             hideable: false,
+//             dataIndex: 'name'
+//         },
+//         {
+//             text: 'Email Address',
+//             width: 150,
+//             dataIndex: 'email',
+//             hidden: true
+//         },
+//         {
+//             text: 'Phone Number',
+//             flex: 1,
+//             dataIndex: 'phone'
+//         }
+//     ]
+// });
+
+storeee.load(function (heck) {
+    console.log('data', heck[0].data.data)
+});
+
+
+
+
 
 export default class MainComponent {
     constructor() {
+
         var navTreeRoot = {
             hash: 'all',
             iconCls: 'x-fa fa-home',
@@ -31,11 +100,127 @@ export default class MainComponent {
         if (Ext.os.is.Phone) {
             this.collapsed = true;
         }
+
+        this.storey = Ext.create('Ext.data.Store', {
+            fields: ['country', 'agr', 'ind', 'ser'],
+            data: [
+                { country: 'USA', agr: 188217, ind: 2995787, ser: 12500746 },
+                { country: 'China', agr: 918138, ind: 3611671, ser: 3792665 },
+                { country: 'Japan', agr: 71568, ind: 1640091, ser: 4258274 },
+                { country: 'UK', agr: 17084, ind: 512506, ser: 1910915 },
+                { country: 'Russia', agr: 78856, ind: 727906, ser: 1215198 }
+            ]
+        });
     }
+
+    tabpanelReady = (event) => {
+        this.tabpanelCmp = event.detail.cmp;
+        this.tabpanelCmp.setTabBar({ layout: { pack: 'left' } });
+    }
+
+    onAxisLabelRender = (axis, label, layoutContext) => {
+        return Ext.util.Format.number(layoutContext.renderer(label) / 1000, '0,000');
+    }
+    onSeriesLabelRender = (value) => {
+        return Ext.util.Format.number(value / 1000, '0,000');
+    }
+
+    cartesianReady = (event) => {
+        this.cartesianCmp = event.detail.cmp;
+        this.cartesianCmp.setStore(this.storey);
+        //  this.cartesianCmp.setTheme(this.theme);
+        this.cartesianCmp.setAxes([
+            {
+                type: 'numeric',
+                position: 'bottom',
+                fields: 'ind',
+                grid: true,
+                maximum: 4000000,
+                majorTickSteps: 10,
+                title: 'Billions of USD',
+                renderer: this.onAxisLabelRender.bind(this)
+            },
+            {
+                type: 'category',
+                position: 'left',
+                fields: 'country',
+                grid: true
+            }]);
+        this.cartesianCmp.setSeries([{
+            type: 'bar',
+            xField: 'country',
+            yField: 'ind',
+            style: {
+                opacity: 0.80,
+                minGapWidth: 10
+            },
+            label: {
+                field: 'ind',
+                display: 'insideEnd',
+                renderer: this.onSeriesLabelRender.bind(this),
+            }
+        }]);
+        this.cartesianCmp.setCaptions({
+            title: {
+                text: 'Sample Bar Graph',
+            },
+            // subtitle: {
+            //     text: 'Source: http://en.wikipedia.org/wiki/List_of_countries_by_GDP_sector_composition',
+            // }
+        });
+    }
+
+
+    /*
+        color: "#BF1932"
+        id: 3
+        name: "true red"
+        pantone_value: "19-1664"
+        year: 2002
+    */
+    onListReady = (event) => {
+        this.listCmp = event.detail.cmp;
+        const tpl =
+            `<div>
+                <div style="font-size:16px;margin-bottom:5px;">Name:{data.name}, Year:{data.year}</div>
+                <div style="font-size:12px;color:#666;">Color:{data.color}, Id:{data.id}, P-Value:{data.pantone_value}</div>
+            </div>`;
+
+        this.store = Ext.create('Ext.data.Store', {
+            autoLoad: true,
+            proxy: {
+                type: 'rest',
+                url: 'resources/data/people.json'
+            },
+            sorters: ['last_name', 'first_name']
+        });
+
+        Ext.define('Userss', {
+            extend: 'Ext.data.Model',
+            fields: ['id', 'name', 'year', 'pantone_value']
+        });
+
+        var storeee = Ext.create('Ext.data.Store', {
+            autoLoad: true,
+            model: 'Userss',
+            proxy: {
+                type: 'rest',
+                url: 'https://reqres.in/api/products/5'
+            }
+        });
+
+        this.listCmp.setItemTpl(tpl);
+        this.listCmp.setStore(storeee);
+    }
+
 
     readyRightContainer = (event) => {
         this.rightContainerCmp = event.detail.cmp;
-        this.rightContainerCmp.updateHtml('Build: ' + BUILD_VERSION); // eslint-disable-line no-undef
+        this.rightContainerCmp.updateHtml(`
+        <div ">
+        <i class="fas fa-user"></i>  <p>Profile</p>
+        </div>
+        `); // eslint-disable-line no-undef
     }
 
     afterAllLoaded = () => {
@@ -43,7 +228,7 @@ export default class MainComponent {
 
         if (this.wait == 0) {
             var hash = window.location.hash.substr(1);
-            if (hash == '') {hash = 'all';}
+            if (hash == '') { hash = 'all'; }
             var node = this.navTreelistCmp.getStore().findNode('hash', hash);
             this.navTreelistCmp.setSelection(node);
             this.navigate(node);
@@ -63,7 +248,7 @@ export default class MainComponent {
     readyNavTreePanel = (event) => {
         this.navTreePanelCmp = event.detail.cmp;
 
-        if(Ext.os.is.Phone) {
+        if (Ext.os.is.Phone) {
             this.navTreePanelCmp.setWidth('100%');
         }
     }
@@ -89,9 +274,9 @@ export default class MainComponent {
 
     readyDataviewNav = (event) => {
         this.dataviewNavCmp = event.detail.cmp;
-        this.dataviewNavCmp.setStyle({'background':'top', 'display':'block', 'text-align':'center'});
+        this.dataviewNavCmp.setStyle({ 'background': 'top', 'display': 'block', 'text-align': 'center' });
 
-        if(Ext.os.is.Phone) {
+        if (Ext.os.is.Phone) {
             this.dataviewNavCmp.setCentered(false);
         }
 
@@ -156,7 +341,7 @@ export default class MainComponent {
             this.showSelection();
         }
 
-        if(Ext.os.is.Phone) {
+        if (Ext.os.is.Phone) {
             this.navTreePanelCmp.setCollapsed(true);
         }
     }
@@ -172,7 +357,7 @@ export default class MainComponent {
         this.router.hidden = false;
         this.codeButtonCmp.setHidden(false);
 
-        if(Ext.os.is.Phone) {
+        if (Ext.os.is.Phone) {
             this.navTreePanelCmp.setCollapsed(true);
         }
 
@@ -181,7 +366,7 @@ export default class MainComponent {
 
     doClickToolbar = () => {
         var collapsed = this.navTreePanelCmp.getCollapsed();
-        if (collapsed == true){collapsed = false;} else {collapsed = true;}
+        if (collapsed == true) { collapsed = false; } else { collapsed = true; }
         this.navTreePanelCmp.setCollapsed(collapsed);
     }
 
@@ -200,8 +385,8 @@ export default class MainComponent {
 
     toggleCode = () => {
         var collapsed = this.codePanelCmp.getHidden();
-        if(collapsed == true) {collapsed = false;}
-        else {collapsed = true;}
+        if (collapsed == true) { collapsed = false; }
+        else { collapsed = true; }
         this.codePanelCmp.setHidden(collapsed);
     }
 
@@ -220,11 +405,11 @@ export default class MainComponent {
         var hash = window.location.hash.substr(1);
         var currentRoute = {};
         window.routes.forEach((route) => {
-            if(hash == '') {
-                if (route.default == true) {currentRoute = route;}
+            if (hash == '') {
+                if (route.default == true) { currentRoute = route; }
             }
             else {
-                if (route.hash == hash) {currentRoute = route;}
+                if (route.hash == hash) { currentRoute = route; }
             }
         });
 
@@ -233,9 +418,9 @@ export default class MainComponent {
         var componentName = currentRoute.hash + 'Component';
 
         this.setTab(codeMap, componentName + '.html');
-        this.setTab(codeMap, componentName + '.js',);
-        this.setTab(codeMap, componentName + '.scss',);
-        this.setTab(codeMap, componentName + '.css',);
+        this.setTab(codeMap, componentName + '.js');
+        this.setTab(codeMap, componentName + '.scss');
+        this.setTab(codeMap, componentName + '.css');
         this.setTab(codeMap, componentName + 'Data.js');
         this.setTab(codeMap, componentName + 'Dummy.js');
         document.querySelectorAll('pre code').forEach((block) => {
@@ -249,7 +434,7 @@ export default class MainComponent {
             this.tabPanelCmp.add(
                 {
                     xtype: 'panel', title: file, ui: 'code-panel', layout: 'fit', userSelectable: true, scrollable: true,
-                    tab: {ui: 'app-code-tab', flex: 0, padding: '0 5 0 0', minWidth: 220, maxWidth: 250},
+                    tab: { ui: 'app-code-tab', flex: 0, padding: '0 5 0 0', minWidth: 220, maxWidth: 250 },
                     html: `<pre><code class='code'>${codeMapFile.replace(/</g, '&lt;').replace(/>/g, '&gt;')}</code></pre>`
                 }
             );

@@ -17,7 +17,13 @@
   hue-6-2: #e6c07b
 
   */
-
+/* .logoCls{
+  background-image: url(../../../resources/images/a4Logo.png);
+} */
+/* 
+.playIcon{
+  background-image: url('../../../resources/images/play-circle-solid.svg')
+} */
   .hljs {
     display: block;
     font-size: 18px;

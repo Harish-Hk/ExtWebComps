@@ -180,254 +180,335 @@ import BreadcrumbToolBarComponent from './view/components/toolbars/breadcrumbtoo
 
 export default function getMenu() {
     return [
-        { text: 'Components', iconCls: 'icon-buttons', children: [
-            { text: 'Buttons', iconCls: 'icon-buttons', children: [
-                { text: 'Button', component: ButtonComponent, layout: 'center', iconCls: 'icon-buttons' },
-                { text: 'SegmentedButton', component: SegmentedButtonComponent, layout: 'center', iconCls: 'icon-segmented-buttons' },
-                { text: 'SplitButton', component: SplitButtonComponent, layout: 'center', iconCls: 'icon-buttons' },
-            ]},
-            { text: 'ColorPicker', component: ColorPickerComponent, layout: 'center', iconCls: 'icon-color-picker' },
-            { text: 'Carousel', component: CarouselComponent, iconCls: 'icon-carousel' },
-            { text: 'Drag & Drop', iconCls: 'icon-drag-drop', children: [
-                { text: 'Simple Drag Drop', component: SimpleDragDropComponent, iconCls: 'icon-drag-simple' },
-                { text: 'Constraints Drag Drop', component: ConstraintsDragDropComponent, iconCls: 'icon-drag-constraint' },
-                { text: 'Proxies Drag Drop', component: ProxiesDragDropComponent, iconCls: 'icon-drag-proxy' },
-                { text: 'Handles Drag Drop', component: HandlesDragDropComponent, iconCls: 'icon-drag-handle' },
-                { text: 'Groups Drag Drop', component: GroupsDragDropComponent, iconCls: 'icon-drag-group' },
-                { text: 'Data Drag Drop', component: DataDragDropComponent, iconCls: 'icon-drag-data' },
-                { text: 'Files Drag Drop', component: FilesDragDropComponent, iconCls: 'icon-drag-drop-element' }
-            ]},
-            { text: 'Draw', component: DrawComponent, layout: 'center', iconCls: 'icon-drawing' },
-            { text: 'Forms', iconCls: 'icon-forms', children: [
-                { text: 'CheckBoxField', component: CheckBoxFieldComponent, layout: 'center', iconCls: 'icon-Forms-CheckBoxField' },
-                { text: 'CheckBoxGroup', component: CheckBoxGroupComponent, layout: 'center', iconCls: 'icon-Forms-CheckBoxField' },
-                { text: 'ComboBoxField', component: ComboBoxFieldComponent, layout: 'center', iconCls: 'icon-Forms-ComboBoxField' },
-                { text: 'MultiSelect ComboBoxField', component: MultiSelectComboBoxFieldComponent, layout: 'center', iconCls: 'icon-Forms-ComboBoxField' },
-                { text: 'ContainerField', component: ContainerFieldComponent, layout: Ext.os.is.Phone ? 'auto' : 'center', iconCls: 'icon-Forms-ContainerField' },
-                { text: 'DatePickerField', component: DatePickerFieldComponent, layout: 'center', iconCls: 'icon-Forms-DatePickerField' },
-                { text: 'EmailField', component: EmailFieldComponent, layout: 'center', iconCls: 'icon-Forms-EmailField' },
-                { text: 'FieldSet', component: FieldSetComponent, layout: 'center', iconCls: 'icon-Forms-FieldSet' },
-                { text: 'FileField', component: FileFieldComponent, layout: 'center', iconCls: 'icon-Forms-FileField' },
-                { text: 'FormPanel', component: FormPanelComponent, iconCls: 'icon-form-panel' },
-                { text: 'NumberField', component: NumberFieldComponent, layout: 'center', iconCls: 'icon-Forms-NumberField' },
-                { text: 'PasswordField', component: PasswordFieldComponent, layout: 'center', iconCls: 'icon-Forms-PasswordField' },
-                { text: 'RadioField', component: RadioFieldComponent, layout: 'center', iconCls: 'icon-Forms-RadioField' },
-                { text: 'SearchField', component: SearchFieldComponent, layout: 'center', iconCls: 'icon-Forms-SearchField' },
-                { text: 'SelectField', component: SelectFieldComponent, layout: 'center', iconCls: 'icon-Forms-SelectField' },
-                { text: 'SliderField', component: SliderFieldComponent, layout: 'center', iconCls: 'icon-Forms-SliderField' },
-                { text: 'SpinnerField', component: SpinnerFieldComponent, layout: 'center', iconCls: 'icon-Forms-SpinnerField' },
-                { text: 'TextAreaField', component: TextAreaFieldComponent, layout: 'center', iconCls: 'icon-Forms-TextAreaField' },
-                { text: 'TextField', component: TextFieldComponent, layout: 'center', iconCls: 'icon-Forms-TextField' },
-                { text: 'TimeField', component: TimeFieldComponent, iconCls: 'icon-form-panel' },
-                { text: 'ToggleField', component: ToggleFieldComponent, layout: 'center', iconCls: 'icon-Forms-ToggleField' },
-                { text: 'URLField', component: URLFieldComponent, layout: 'center', iconCls: 'icon-Forms-URLField' },
-                { text: 'Validation', component: ValidationComponent, layout: 'auto', iconCls: 'icon-form-validation'}
-            ]},
-            { text: 'Gauges', iconCls: 'icon-gauge-charts', children: [
-                { text: 'Default Gauge', component: DefaultGaugeComponent, layout: 'center', iconCls: 'icon-gauge-charts' },
-                { text: 'Needle Gauge', component: NeedleGaugeComponent, layout: 'center', iconCls: 'icon-gauge-charts' }
-            ]},
-            { text: 'Layouts', iconCls: 'icon-layouts', children: [
-                { text: 'Card Layout', component: CardLayoutComponent, iconCls: 'icon-layout-card' },
-                { text: 'Center Layout', component: CenterLayoutComponent, iconCls: 'icon-layout-center' },
-                { text: 'Fit Layout', component: FitLayoutComponent, iconCls: 'icon-layout-fit' },
-                { text: 'Form Layout', component: FormLayoutComponent, layout: 'auto', iconCls: 'icon-layout-form' },
-                { text: 'hbox Layout', component: hboxLayoutComponent, layout: 'auto', iconCls: 'icon-layout-horizontal-box' },
-                { text: 'Resizable Layout', component: ResizableLayoutComponent, iconCls: 'icon-layout-box' },
-                { text: 'vbox Layout', component: vboxLayoutComponent, layout: 'auto', iconCls: 'icon-layout-vertical-box' },
-                { text: 'Accordion Layout', component: AccordionLayoutComponent, iconCls: 'icon-layout-accordion'}
-            ]},
-            { text: 'Lists', iconCls: 'icon-lists', children: [
-                { text: 'Basic List', component: BasicListComponent, layout: Ext.os.is.Phone ? 'fit': 'center', iconCls: 'icon-basic-list' },
-                { text: 'Disclosure List', component: DisclosureListComponent, layout: Ext.os.is.Phone ? 'fit': 'center', iconCls: 'icon-disclosure-list' },
-                { text: 'Grouped List', component: GroupedListComponent, layout: Ext.os.is.Phone ? 'fit': 'center', iconCls: 'icon-grouped-list' },
-                { text: 'Nested List', component: NestedListComponent, layout: Ext.os.is.Phone ? 'fit': 'center', iconCls: 'icon-nested-list' },
-                { text: 'Pull Refresh List', component: PullRefreshListComponent, layout: Ext.os.is.Phone ? 'fit': 'center', iconCls: 'icon-pullrefresh-list' },
-                { text: 'Paging List', component: PagingListComponent, layout: Ext.os.is.Phone ? 'fit': 'center', iconCls: 'icon-listpaging-list' },
-                { text: 'Basic Accordion Swiper', component: BasicAccordionSwiperComponent, layout: Ext.os.is.Phone ? 'fit': 'center', iconCls: 'icon-basic-accordion-swiper'},
-                { text: 'Basic Step Swiper', component: BasicStepSwiperComponent, layout: Ext.os.is.Phone ? 'fit': 'center', iconCls: 'icon-basic-step-swiper'},
-                { text: 'Undoable Accordion Swiper', component: UndoableAccordionSwiperComponent, layout: Ext.os.is.Phone ? 'fit': 'center', iconCls: 'icon-undoable-accordion-swiper'},
-                { text: 'Undoable Step Swiper', component: UndoableStepSwiperComponent, layout: Ext.os.is.Phone ? 'fit': 'center', iconCls: 'icon-undoable-step-swiper'}
-            ]},
-            { text: 'Media', iconCls: 'icon-video', children: [
-                { text: 'Video', iconCls: 'icon-video', component: VideoComponent },
-                { text: 'Audio', iconCls: 'icon-audio', component: AudioComponent }
-            ] },
-            { text: 'Panels', iconCls: 'icon-panels', children: [
-                { text: 'Basic Panel', component: BasicPanelComponent, layout: Ext.os.is.Phone ? 'auto': 'center', iconCls: 'icon-panels' },
-                { text: 'Resizable Handle', component: ResizableHandleComponent, layout: 'fit', iconCls: 'icon-panel-handleresize', hidden: Ext.os.is.Phone },
-                { text: 'Collapsible Panel', component: CollapsiblePanelComponent, layout: Ext.os.is.Phone ? 'fit': 'center', iconCls: 'icon-panel-collapsible' },
-                { text: 'Basic Date Panel', component: BasicDatePanelComponent, layout: 'center', iconCls: 'icon-panel-date' },
-                { text: 'Advanced Date Panel', component: AdvancedDatePanelComponent, layout: 'center', iconCls: 'icon-panel-date-adv', hidden: Ext.os.is.Phone },
-                { text: 'Time Panel', component: TimePanelComponent, layout: 'center', iconCls: 'icon-panel-date-adv', hidden: Ext.os.is.Phone },
-            ]},
-            { text: 'Popups', iconCls: 'icon-windows', children: [
-                { text: 'Dialog Popup', component: DialogPopupComponent, layout: 'center', iconCls: 'icon-basic-dialog' },
-                { text: 'Message Popup', component: MessagePopupComponent, layout: 'center', iconCls: 'icon-overlays' },
-                { text: 'Toast Popup', component: ToastPopupComponent, layout: 'center', iconCls: 'icon-toast-view' }
-            ]},
-            { text: 'ProgressBar', component: ProgressBarComponent, layout: 'center', iconCls: 'icon-progress-decorated' },
-            { text: 'Ripple', component: RippleComponent, layout: 'center', iconCls: 'icon-Ripple' },
-            { text: 'Sheet', component: SheetComponent, layout: 'center', iconCls: 'icon-actionsheets' },
-            { text: 'Tabs', iconCls: 'icon-tabs', children: [
-                { text: 'Basic Tab', component: BasicTabComponent, iconCls: 'icon-basic-tabs' },
-                { text: 'Bottom Tab', component: BottomTabComponent, iconCls: 'icon-bottom-tabs' },
-                { text: 'Icon Tab', component: IconTabComponent, iconCls: 'icon-icon-tabs' },
-                { text: 'Desktop Tab', component: DesktopTabComponent, iconCls: 'icon-Desktop-Tabs' },
-                { text: 'Closable Tab', component: ClosableTabComponent, iconCls: 'icon-Closable-Tabs' },
-                { text: 'Scrolling Tab', component: ScrollingTabComponent, layout: Ext.os.is.Phone ? 'fit': 'center', iconCls: 'icon-Scrolling-Tabs' },
-                { text: 'Tab Bar', component: TabBarComponent, layout: Ext.os.is.Phone ? 'fit': 'center', iconCls: 'icon-Tab-Bar' }
-            ]},
-            { text: 'TitleBar', component: TitleBarComponent, iconCls: 'icon-Title-Bar' },
-            { text: 'Toolbars', iconCls: 'icon-toolbar', children: [
-                { text: 'ToolBar', component: ToolBarComponent, iconCls: 'icon-toolbar' },
-                { text: 'BreadcrumbToolBar', component: BreadcrumbToolBarComponent, layout: 'center', iconCls: 'icon-breadcrumb-toolbar' },
-            ]},
-            { text: 'ToolTip', component: ToolTipComponent, layout: 'center', iconCls: 'icon-tooltips' },
-            { text: 'Touch Events', component: TouchEventsComponent, iconCls: 'icon-touch-events' },
-            //{ text: "Transition", component: Transition, iconCls: "icon-Transition" },
-            { text: 'Wizard', component: WizardComponent, iconCls: 'icon-layout-card-indicator', layout: Ext.os.is.Phone ? 'fit': 'center' },
-            { text: 'Froala Editor', component: FroalaEditorComponent, layout: 'center', iconCls: 'icon-editor' }
-        ]},
-
-        { text: 'Grids', iconCls: 'icon-grids', children: [
-            { text: 'Core Features', iconCls: 'icon-grids', children: [
-                { text: 'Basic Grid', component: BasicGridComponent, iconCls: 'icon-grids'},
-                { text: 'Grouped Grid', component: GroupedGridComponent, iconCls: 'icon-grouped-grid'},
-                { text: 'Locking Grid', component: LockingGridComponent, iconCls: 'icon-locking-grid'},
-                { text: 'Editable Grid', component: EditableGridComponent, iconCls: 'icon-editable-grid'},
-                { text: 'XML Grid', component: XMLGridComponent, iconCls: 'icon-xml-grid'},
-                { text: 'Editable Row', component:EditableRowComponent, iconCls:'icon-row-editing'},
-                { text: 'Infinite Grid', component: InfiniteGridComponent, iconCls: 'icon-buffer-grid'}
-            ]},
-            { text: 'Add-ons', iconCls: 'icon-framing-buttons', children: [
-                { text: 'Grid Tools', component: GridToolsComponent, iconCls: 'icon-grid-tools'},
-                { text: 'Row Expander', component: RowExpanderComponent, iconCls: 'icon-row-expander-grid'},
-                { text: 'Row Body', component: RowBodyComponent, iconCls: 'icon-row-body-grid'},
-                { text: 'Summary Row', component: SummaryRowComponent, iconCls: 'icon-grid-summary'},
-                { text: 'Grid Filtering', component: GridFilteringComponent, iconCls: 'icon-grid-filtering'},
-                { text: 'View Options', component: ViewOptionsComponent, iconCls: 'icon-view-options-grid'},
-                { text: 'Row Drag And Drop', component: RowDragAndDropComponent, iconCls: 'icon-dd-grid-row'},
-                { text: 'Drag Form To Grid', component: DragFormToGrid, iconCls: 'icon-dd-form-to-grid'}
-            ]},
-            { text: 'Advanced Features', iconCls: 'icon-grid-plugins', children:[
-                { text: 'Big Data', component: BigDataComponent, iconCls: 'icon-big-data-grid' },
-                { text: 'Select And Copy', component: SelectAndCopyComponent, iconCls: 'icon-flexible-selection-grid' },
-                { text: 'Reconfigure Grid', component: ReconfigureGridComponent, iconCls: 'icon-reconfigure-grid' },
-                { text: 'Components In Cells', component: ComponentsInCellsComponent, iconCls: 'icon-grid-tools' },
-                { text: 'Stock Ticker', component: StockTickerComponent, iconCls: 'icon-ticker-grid' }
-            ]}
-        ]},
-
-        { text: 'Trees', iconCls: 'icon-trees', children: [
-            { text: 'TreeList', component: TreeListComponent, layout: Ext.os.is.Phone ? 'fit': 'center', iconCls: 'icon-tree-list' },
-            { text: 'Tree', premium: true, premiumClass: 'x-fa fa-star app-premium-indicator', component: TreeComponent, iconCls: 'icon-trees' },
-            { text: 'Editable Tree', premium: true, premiumClass: 'x-fa fa-star app-premium-indicator', component: EditableTreeComponent, iconCls: 'icon-tree-editable'},
-            { text: 'Tree Grid', premium: true, premiumClass: 'x-fa fa-star app-premium-indicator', component: TreeGridComponent, iconCls: 'icon-tree-grid' },
-            { text: 'Tree Decorations', premium: true, premiumClass: 'x-fa fa-star app-premium-indicator', component:TreeDecorationsComponent, iconCls: 'icon-tree-decorations'},
-            { text: 'Heterogeneous Tree', premium: true, premiumClass: 'x-fa fa-star app-premium-indicator', component: HeterogeneousTreeComponent, iconCls: 'icon-heterogeneous-tree'},
-            { text: 'Tree Reorder', component: TreeReorderComponent, iconCls: 'icon-tree-reorder'}
-        ]},
-
-        { text: 'Calendar', premium: false, iconCls: 'icon-calendar', children:[
-            { text: 'Calendar Panel', component: CalendarPanelComponent, iconCls: 'icon-calendar-panel' },
-            { text: 'Calendar Month View', component: CalendarMonthViewComponent, iconCls: 'icon-calendar-month-view' },
-            { text: 'Calendar Week View', component: CalendarWeekViewComponent, iconCls: 'icon-calendar-week-view' },
-            { text: 'Calendar Days View', component: CalendarDaysViewComponent, iconCls: 'icon-calendar-days-view' },
-            { text: 'Timezone Support', component: CalendarTimezoneSupportComponent, iconCls: 'icon-calendar-timezone' },
-            { text: 'Drag Resize Validation', component: CalendarDragResizeValidationComponent, iconCls: 'icon-calendar-validation' }
-        ]},
-
-        { text: 'Charts', premium: false, iconCls: 'icon-charts', children: [
-            { text: 'Area', iconCls: 'icon-area-basic', children: [
-                { text: 'Basic Area', component: BasicAreaComponent, iconCls: 'icon-area-basic' },
-                { text: 'Stacked Area', component: StackedAreaComponent, iconCls: 'icon-area-stacked'},
-                { text: 'Full Stacked Area', component: FullStackedAreaComponent, iconCls: 'icon-area-stacked-100'},
-                { text: 'Negative Values Area', component: NegativeValuesAreaComponent, iconCls: 'icon-area-negative'}
-            ] },
-            { text: 'Bar', iconCls: 'icon-bar-basic', children: [
-                { text: 'Basic Bar', component: BasicBarComponent, iconCls: 'icon-bar-basic' },
-                { text: 'Stacked Bar', component: StackedBarComponent, iconCls: 'icon-bar-stacked' },
-                { text: 'Full Stacked Bar', component: FullStackedBarComponent, iconCls: 'icon-bar-stacked-100'}
-            ] },
-            { text: 'BoxPlot', component: BoxPlotComponent, iconCls: 'icon-boxplot-charts' },
-            { text: 'Column', iconCls: 'icon-column-charts', children: [
-                { text: 'Basic Column', component: BasicColumnComponent, iconCls: 'icon-column-basic' },
-                { text: 'Stacked', component: StackedComponent, iconCls: 'icon-column-stacked' },
-                { text: 'Column With Renderer', component: ColumnWithRendererComponent, iconCls: 'icon-column-renderer' },
-                { text: 'Multiaxis Column', component: MultiaxisColumnComponent, iconCls: 'icon-column-multi-axis' }
-            ] },
-            { text: 'Three D Column', iconCls: 'icon-column-3d', children: [
-                { text: 'Basic 3D Column', component: Basic3DColumnComponent, iconCls: 'icon-column-basic-3d' },
-                { text: 'Three D Grouped', component: ThreeDGroupedComponent, iconCls: 'icon-column-grouped-3d' },
-                { text: 'Three D Stacked', component: ThreeDStackedComponent, iconCls: 'icon-column-stacked-3d' },
-                { text: 'Negative Values', component: NegativeValuesComponent, iconCls: 'icon-column-negative-3d' },
-                { text: 'Three D Column With Renderer', component: ThreeDColumnWithRendererComponent, iconCls: 'icon-column-renderer-3d' }
-            ]},
-            { text: 'Financial', iconCls: 'icon-financial-charts', children: [
-                { text: 'Candlestick', component: CandlestickComponent, iconCls: 'icon-financial-candlestick' },
-                { text: 'OHLC', component: OHLCComponent, iconCls: 'icon-financial-ohlc' }
-            ] },
-            { text: 'Basic Gauge Chart', iconCls: 'icon-gauge-basic', component: BasicGaugeChartComponent },
-            { text: 'Line', iconCls: 'icon-line-charts', children: [
-                { text: 'Basic Line', component: BasicLineComponent, iconCls: 'icon-line-basic' },
-                { text: 'Basic Markers', component: BasicMarkersComponent, iconCls: 'icon-line-markers' },
-                { text: 'Spline', component: SplineComponent, iconCls: 'icon-line-spline' },
-                { text: 'Spline Markers', component: SplineMarkersComponent, iconCls: 'icon-line-marked-spline' },
-                { text: 'Plot', component: PlotComponent, iconCls: 'icon-line-plot' },
-                { text: 'With Renderer', component: WithRendererComponent, iconCls: 'icon-line-renderer' },
-                { text: 'Realtime', component: RealtimeComponent, iconCls: 'icon-line-real-time' }
-            ] },
-            { text: 'Navigation', component: NavigationComponent, iconCls: 'icon-navigator-charts' },
-            { text: 'Pie', iconCls: 'icon-pie-basic', children: [
-                { text: 'Basic Pie', component: BasicPieComponent, iconCls: 'icon-pie-basic' },
-                { text: 'Spie', component: SpieComponent, iconCls: 'icon-pie-custom' },
-                { text: 'Donut', component: DonutComponent, iconCls: 'icon-pie-donut' },
-                { text: 'Double Donut', component: DoubleDonutComponent, iconCls: 'icon-pie-double-donut' },
-                { text: 'Three D Pie', component: ThreeDPieComponent, iconCls: 'icon-pie-3d' }
-            ] },
-            { text: 'Radar', iconCls: 'icon-radar-charts', children: [
-                { text: 'Basic Radar', component: BasicRadarComponent, iconCls: 'icon-radar-basic' },
-                { text: 'Filled', component: FilledComponent, iconCls: 'icon-radar-filled' },
-                { text: 'Marked', component: MarkedComponent, iconCls: 'icon-radar-marked' },
-                { text: 'Multiaxis', component: MultiaxisComponent, iconCls: 'icon-radar-multi-axis' }
-            ] },
-            { text: 'Scatter', iconCls: 'icon-scatter-charts', children: [
-                { text: 'Basic Scatter', component: BasicScatterComponent, iconCls: 'icon-scatter-basic' },
-                { text: 'Custom Icons', component: CustomIconsComponent, iconCls: 'icon-scatter-custom-icons' },
-                { text: 'Bubble', component: BubbleComponent, iconCls: 'icon-scatter-bubble' }
-            ] }
-        ]},
-
-        { text: 'D3', premium: false, iconCls: 'icon-d3', children: [
-            { text: 'Heatmap', iconCls: 'icon-d3-heatmap', children: [
-                { text: 'Purchases By Day', component: PurchasesByDayComponent, iconCls: 'icon-d3-view-heatmap-purchases' },
-                { text: 'Sales Per Employee', component: SalesPerEmployeeComponent, iconCls: 'icon-d3-view-heatmap-sales' },
-                { text: 'Pivot Heatmap', component: PivotHeatmapComponent, iconCls: 'icon-d3-view-heatmap-pivot' },
-                { text: 'Configurable Pivot Heatmap', component: ConfigurablePivotHeatmapComponent, iconCls: 'icon-d3-view-heatmap-pivot-configurator' }
-            ]},
-            { text: 'Hierarchy', iconCls: 'icon-d3-hierarchy', children: [
-                { text: 'Org Chart', component: OrgChartComponent, iconCls: 'icon-d3-view-sencha-tree' },
-                { text: 'Pack', component: PackComponent, iconCls: 'icon-d3-view-pack' },
-                { text: 'Sunburst', component: SunburstComponent, iconCls: 'icon-d3-view-sunburst' },
-                { text: 'Zoomable Sunburst', component: ZoomableSunburstComponent, iconCls: 'icon-d3-view-sunburst-zoom' },
-                { text: 'Tree Hierarchy', component: TreeHierarchyComponent, iconCls: 'icon-d3-view-tree' },
-                { text: 'Tree Map', component: TreeMapComponent, iconCls: 'icon-d3-view-treemap' },
-                { text: 'Tree Map ToolTip', component: TreeMapToolTipComponent, iconCls: 'icon-d3-view-treemap-tooltip' },
-                { text: 'Configurable Pivot TreeMap', component: ConfigurablePivotTreeMapComponent, iconCls: 'icon-d3-view-treemap-pivot-configurator' }
-            ]}
-        ]},
-        { text: 'Pivot Grids', premium: false, iconCls: 'icon-pivot-grids', children: [
-            { text: 'Outline Layout', component: OutlineLayoutComponent, iconCls: 'icon-outline-pivot-grid' },
-            { text: 'Compact Layout', component: CompactLayoutComponent, iconCls: 'icon-compact-pivot-grid' },
-            { text: 'Tabular Layout', component: TabularLayoutComponent, iconCls: 'icon-tabular-pivot-grid' },
-            { text: 'Collapsible', component: CollapsibleComponent, iconCls: 'icon-collapsible-pivot-grid' },
-            { text: 'Data Changes', component: DataChangesComponent, iconCls: 'icon-datachanges-pivot-grid' },
-            { text: 'Pivot Grid Widgets', component: PivotGridWidgetsComponent, iconCls: 'icon-widgets-pivot-grid' },
-            { text: 'Drilldown Plugin', component: DrilldownPluginComponent, iconCls: 'icon-drilldown-pivot-grid' },
-            { text: 'Configurator Plugin', component: ConfiguratorPluginComponent, iconCls: 'icon-configurable-pivot-grid' },
-            { text: 'Range Editor Plugin', component: RangeEditorPluginComponent, iconCls: 'icon-rangeeditor-pivot-grid' },
-            { text: 'Exporter Plugin', component: ExporterPluginComponent, iconCls: 'icon-exporter-pivot-grid' }
-        ]}
+        {
+            text: 'Home', iconCls: 'fas fa-home', layout: 'center'
+        },
+        {
+            text: 'Database Manager', iconCls: 'fas fa-database', layout: 'center'
+        },
+        {
+            text: 'Import Manager', iconCls: 'fas fa-file-import', layout: 'center'
+        },
+        {
+            text: 'Cluster Manager', iconCls: 'fas fa-server', layout: 'center'
+        },
+        {
+            text: 'User Manager', iconCls: 'fas fa-users-cog', layout: 'center'
+        },
+        /*
+          {
+              text: 'Components', iconCls: 'icon-buttons', children: [
+                  {
+                      text: 'Buttons', iconCls: 'icon-buttons', children: [
+                          { text: 'Button', component: ButtonComponent, layout: 'center', iconCls: 'icon-buttons' },
+                          { text: 'SegmentedButton', component: SegmentedButtonComponent, layout: 'center', iconCls: 'icon-segmented-buttons' },
+                          { text: 'SplitButton', component: SplitButtonComponent, layout: 'center', iconCls: 'icon-buttons' },
+                      ]
+                  },
+                  { text: 'ColorPicker', component: ColorPickerComponent, layout: 'center', iconCls: 'icon-color-picker' },
+                  { text: 'Carousel', component: CarouselComponent, iconCls: 'icon-carousel' },
+                  {
+                      text: 'Drag & Drop', iconCls: 'icon-drag-drop', children: [
+                          { text: 'Simple Drag Drop', component: SimpleDragDropComponent, iconCls: 'icon-drag-simple' },
+                          { text: 'Constraints Drag Drop', component: ConstraintsDragDropComponent, iconCls: 'icon-drag-constraint' },
+                          { text: 'Proxies Drag Drop', component: ProxiesDragDropComponent, iconCls: 'icon-drag-proxy' },
+                          { text: 'Handles Drag Drop', component: HandlesDragDropComponent, iconCls: 'icon-drag-handle' },
+                          { text: 'Groups Drag Drop', component: GroupsDragDropComponent, iconCls: 'icon-drag-group' },
+                          { text: 'Data Drag Drop', component: DataDragDropComponent, iconCls: 'icon-drag-data' },
+                          { text: 'Files Drag Drop', component: FilesDragDropComponent, iconCls: 'icon-drag-drop-element' }
+                      ]
+                  },
+                  { text: 'Draw', component: DrawComponent, layout: 'center', iconCls: 'icon-drawing' },
+                  {
+                      text: 'Forms', iconCls: 'icon-forms', children: [
+                          { text: 'CheckBoxField', component: CheckBoxFieldComponent, layout: 'center', iconCls: 'icon-Forms-CheckBoxField' },
+                          { text: 'CheckBoxGroup', component: CheckBoxGroupComponent, layout: 'center', iconCls: 'icon-Forms-CheckBoxField' },
+                          { text: 'ComboBoxField', component: ComboBoxFieldComponent, layout: 'center', iconCls: 'icon-Forms-ComboBoxField' },
+                          { text: 'MultiSelect ComboBoxField', component: MultiSelectComboBoxFieldComponent, layout: 'center', iconCls: 'icon-Forms-ComboBoxField' },
+                          { text: 'ContainerField', component: ContainerFieldComponent, layout: Ext.os.is.Phone ? 'auto' : 'center', iconCls: 'icon-Forms-ContainerField' },
+                          { text: 'DatePickerField', component: DatePickerFieldComponent, layout: 'center', iconCls: 'icon-Forms-DatePickerField' },
+                          { text: 'EmailField', component: EmailFieldComponent, layout: 'center', iconCls: 'icon-Forms-EmailField' },
+                          { text: 'FieldSet', component: FieldSetComponent, layout: 'center', iconCls: 'icon-Forms-FieldSet' },
+                          { text: 'FileField', component: FileFieldComponent, layout: 'center', iconCls: 'icon-Forms-FileField' },
+                          { text: 'FormPanel', component: FormPanelComponent, iconCls: 'icon-form-panel' },
+                          { text: 'NumberField', component: NumberFieldComponent, layout: 'center', iconCls: 'icon-Forms-NumberField' },
+                          { text: 'PasswordField', component: PasswordFieldComponent, layout: 'center', iconCls: 'icon-Forms-PasswordField' },
+                          { text: 'RadioField', component: RadioFieldComponent, layout: 'center', iconCls: 'icon-Forms-RadioField' },
+                          { text: 'SearchField', component: SearchFieldComponent, layout: 'center', iconCls: 'icon-Forms-SearchField' },
+                          { text: 'SelectField', component: SelectFieldComponent, layout: 'center', iconCls: 'icon-Forms-SelectField' },
+                          { text: 'SliderField', component: SliderFieldComponent, layout: 'center', iconCls: 'icon-Forms-SliderField' },
+                          { text: 'SpinnerField', component: SpinnerFieldComponent, layout: 'center', iconCls: 'icon-Forms-SpinnerField' },
+                          { text: 'TextAreaField', component: TextAreaFieldComponent, layout: 'center', iconCls: 'icon-Forms-TextAreaField' },
+                          { text: 'TextField', component: TextFieldComponent, layout: 'center', iconCls: 'icon-Forms-TextField' },
+                          { text: 'TimeField', component: TimeFieldComponent, iconCls: 'icon-form-panel' },
+                          { text: 'ToggleField', component: ToggleFieldComponent, layout: 'center', iconCls: 'icon-Forms-ToggleField' },
+                          { text: 'URLField', component: URLFieldComponent, layout: 'center', iconCls: 'icon-Forms-URLField' },
+                          { text: 'Validation', component: ValidationComponent, layout: 'auto', iconCls: 'icon-form-validation' }
+                      ]
+                  },
+                  {
+                      text: 'Gauges', iconCls: 'icon-gauge-charts', children: [
+                          { text: 'Default Gauge', component: DefaultGaugeComponent, layout: 'center', iconCls: 'icon-gauge-charts' },
+                          { text: 'Needle Gauge', component: NeedleGaugeComponent, layout: 'center', iconCls: 'icon-gauge-charts' }
+                      ]
+                  },
+                  {
+                      text: 'Layouts', iconCls: 'icon-layouts', children: [
+                          { text: 'Card Layout', component: CardLayoutComponent, iconCls: 'icon-layout-card' },
+                          { text: 'Center Layout', component: CenterLayoutComponent, iconCls: 'icon-layout-center' },
+                          { text: 'Fit Layout', component: FitLayoutComponent, iconCls: 'icon-layout-fit' },
+                          { text: 'Form Layout', component: FormLayoutComponent, layout: 'auto', iconCls: 'icon-layout-form' },
+                          { text: 'hbox Layout', component: hboxLayoutComponent, layout: 'auto', iconCls: 'icon-layout-horizontal-box' },
+                          { text: 'Resizable Layout', component: ResizableLayoutComponent, iconCls: 'icon-layout-box' },
+                          { text: 'vbox Layout', component: vboxLayoutComponent, layout: 'auto', iconCls: 'icon-layout-vertical-box' },
+                          { text: 'Accordion Layout', component: AccordionLayoutComponent, iconCls: 'icon-layout-accordion' }
+                      ]
+                  },
+                  {
+                      text: 'Lists', iconCls: 'icon-lists', children: [
+                          { text: 'Basic List', component: BasicListComponent, layout: Ext.os.is.Phone ? 'fit' : 'center', iconCls: 'icon-basic-list' },
+                          { text: 'Disclosure List', component: DisclosureListComponent, layout: Ext.os.is.Phone ? 'fit' : 'center', iconCls: 'icon-disclosure-list' },
+                          { text: 'Grouped List', component: GroupedListComponent, layout: Ext.os.is.Phone ? 'fit' : 'center', iconCls: 'icon-grouped-list' },
+                          { text: 'Nested List', component: NestedListComponent, layout: Ext.os.is.Phone ? 'fit' : 'center', iconCls: 'icon-nested-list' },
+                          { text: 'Pull Refresh List', component: PullRefreshListComponent, layout: Ext.os.is.Phone ? 'fit' : 'center', iconCls: 'icon-pullrefresh-list' },
+                          { text: 'Paging List', component: PagingListComponent, layout: Ext.os.is.Phone ? 'fit' : 'center', iconCls: 'icon-listpaging-list' },
+                          { text: 'Basic Accordion Swiper', component: BasicAccordionSwiperComponent, layout: Ext.os.is.Phone ? 'fit' : 'center', iconCls: 'icon-basic-accordion-swiper' },
+                          { text: 'Basic Step Swiper', component: BasicStepSwiperComponent, layout: Ext.os.is.Phone ? 'fit' : 'center', iconCls: 'icon-basic-step-swiper' },
+                          { text: 'Undoable Accordion Swiper', component: UndoableAccordionSwiperComponent, layout: Ext.os.is.Phone ? 'fit' : 'center', iconCls: 'icon-undoable-accordion-swiper' },
+                          { text: 'Undoable Step Swiper', component: UndoableStepSwiperComponent, layout: Ext.os.is.Phone ? 'fit' : 'center', iconCls: 'icon-undoable-step-swiper' }
+                      ]
+                  },
+                  {
+                      text: 'Media', iconCls: 'icon-video', children: [
+                          { text: 'Video', iconCls: 'icon-video', component: VideoComponent },
+                          { text: 'Audio', iconCls: 'icon-audio', component: AudioComponent }
+                      ]
+                  },
+                  {
+                      text: 'Panels', iconCls: 'icon-panels', children: [
+                          { text: 'Basic Panel', component: BasicPanelComponent, layout: Ext.os.is.Phone ? 'auto' : 'center', iconCls: 'icon-panels' },
+                          { text: 'Resizable Handle', component: ResizableHandleComponent, layout: 'fit', iconCls: 'icon-panel-handleresize', hidden: Ext.os.is.Phone },
+                          { text: 'Collapsible Panel', component: CollapsiblePanelComponent, layout: Ext.os.is.Phone ? 'fit' : 'center', iconCls: 'icon-panel-collapsible' },
+                          { text: 'Basic Date Panel', component: BasicDatePanelComponent, layout: 'center', iconCls: 'icon-panel-date' },
+                          { text: 'Advanced Date Panel', component: AdvancedDatePanelComponent, layout: 'center', iconCls: 'icon-panel-date-adv', hidden: Ext.os.is.Phone },
+                          { text: 'Time Panel', component: TimePanelComponent, layout: 'center', iconCls: 'icon-panel-date-adv', hidden: Ext.os.is.Phone },
+                      ]
+                  },
+                  {
+                      text: 'Popups', iconCls: 'icon-windows', children: [
+                          { text: 'Dialog Popup', component: DialogPopupComponent, layout: 'center', iconCls: 'icon-basic-dialog' },
+                          { text: 'Message Popup', component: MessagePopupComponent, layout: 'center', iconCls: 'icon-overlays' },
+                          { text: 'Toast Popup', component: ToastPopupComponent, layout: 'center', iconCls: 'icon-toast-view' }
+                      ]
+                  },
+                  { text: 'ProgressBar', component: ProgressBarComponent, layout: 'center', iconCls: 'icon-progress-decorated' },
+                  { text: 'Ripple', component: RippleComponent, layout: 'center', iconCls: 'icon-Ripple' },
+                  { text: 'Sheet', component: SheetComponent, layout: 'center', iconCls: 'icon-actionsheets' },
+                  {
+                      text: 'Tabs', iconCls: 'icon-tabs', children: [
+                          { text: 'Basic Tab', component: BasicTabComponent, iconCls: 'icon-basic-tabs' },
+                          { text: 'Bottom Tab', component: BottomTabComponent, iconCls: 'icon-bottom-tabs' },
+                          { text: 'Icon Tab', component: IconTabComponent, iconCls: 'icon-icon-tabs' },
+                          { text: 'Desktop Tab', component: DesktopTabComponent, iconCls: 'icon-Desktop-Tabs' },
+                          { text: 'Closable Tab', component: ClosableTabComponent, iconCls: 'icon-Closable-Tabs' },
+                          { text: 'Scrolling Tab', component: ScrollingTabComponent, layout: Ext.os.is.Phone ? 'fit' : 'center', iconCls: 'icon-Scrolling-Tabs' },
+                          { text: 'Tab Bar', component: TabBarComponent, layout: Ext.os.is.Phone ? 'fit' : 'center', iconCls: 'icon-Tab-Bar' }
+                      ]
+                  },
+                  { text: 'TitleBar', component: TitleBarComponent, iconCls: 'icon-Title-Bar' },
+                  {
+                      text: 'Toolbars', iconCls: 'icon-toolbar', children: [
+                          { text: 'ToolBar', component: ToolBarComponent, iconCls: 'icon-toolbar' },
+                          { text: 'BreadcrumbToolBar', component: BreadcrumbToolBarComponent, layout: 'center', iconCls: 'icon-breadcrumb-toolbar' },
+                      ]
+                  },
+                  { text: 'ToolTip', component: ToolTipComponent, layout: 'center', iconCls: 'icon-tooltips' },
+                  { text: 'Touch Events', component: TouchEventsComponent, iconCls: 'icon-touch-events' },
+                  //{ text: "Transition", component: Transition, iconCls: "icon-Transition" },
+                  { text: 'Wizard', component: WizardComponent, iconCls: 'icon-layout-card-indicator', layout: Ext.os.is.Phone ? 'fit' : 'center' },
+                  { text: 'Froala Editor', component: FroalaEditorComponent, layout: 'center', iconCls: 'icon-editor' }
+              ]
+          },
+  
+          {
+              text: 'Grids', iconCls: 'icon-grids', children: [
+                  {
+                      text: 'Core Features', iconCls: 'icon-grids', children: [
+                          { text: 'Basic Grid', component: BasicGridComponent, iconCls: 'icon-grids' },
+                          { text: 'Grouped Grid', component: GroupedGridComponent, iconCls: 'icon-grouped-grid' },
+                          { text: 'Locking Grid', component: LockingGridComponent, iconCls: 'icon-locking-grid' },
+                          { text: 'Editable Grid', component: EditableGridComponent, iconCls: 'icon-editable-grid' },
+                          { text: 'XML Grid', component: XMLGridComponent, iconCls: 'icon-xml-grid' },
+                          { text: 'Editable Row', component: EditableRowComponent, iconCls: 'icon-row-editing' },
+                          { text: 'Infinite Grid', component: InfiniteGridComponent, iconCls: 'icon-buffer-grid' }
+                      ]
+                  },
+                  {
+                      text: 'Add-ons', iconCls: 'icon-framing-buttons', children: [
+                          { text: 'Grid Tools', component: GridToolsComponent, iconCls: 'icon-grid-tools' },
+                          { text: 'Row Expander', component: RowExpanderComponent, iconCls: 'icon-row-expander-grid' },
+                          { text: 'Row Body', component: RowBodyComponent, iconCls: 'icon-row-body-grid' },
+                          { text: 'Summary Row', component: SummaryRowComponent, iconCls: 'icon-grid-summary' },
+                          { text: 'Grid Filtering', component: GridFilteringComponent, iconCls: 'icon-grid-filtering' },
+                          { text: 'View Options', component: ViewOptionsComponent, iconCls: 'icon-view-options-grid' },
+                          { text: 'Row Drag And Drop', component: RowDragAndDropComponent, iconCls: 'icon-dd-grid-row' },
+                          { text: 'Drag Form To Grid', component: DragFormToGrid, iconCls: 'icon-dd-form-to-grid' }
+                      ]
+                  },
+                  {
+                      text: 'Advanced Features', iconCls: 'icon-grid-plugins', children: [
+                          { text: 'Big Data', component: BigDataComponent, iconCls: 'icon-big-data-grid' },
+                          { text: 'Select And Copy', component: SelectAndCopyComponent, iconCls: 'icon-flexible-selection-grid' },
+                          { text: 'Reconfigure Grid', component: ReconfigureGridComponent, iconCls: 'icon-reconfigure-grid' },
+                          { text: 'Components In Cells', component: ComponentsInCellsComponent, iconCls: 'icon-grid-tools' },
+                          { text: 'Stock Ticker', component: StockTickerComponent, iconCls: 'icon-ticker-grid' }
+                      ]
+                  }
+              ]
+          },
+  
+          {
+              text: 'Trees', iconCls: 'icon-trees', children: [
+                  { text: 'TreeList', component: TreeListComponent, layout: Ext.os.is.Phone ? 'fit' : 'center', iconCls: 'icon-tree-list' },
+                  { text: 'Tree', premium: true, premiumClass: 'x-fa fa-star app-premium-indicator', component: TreeComponent, iconCls: 'icon-trees' },
+                  { text: 'Editable Tree', premium: true, premiumClass: 'x-fa fa-star app-premium-indicator', component: EditableTreeComponent, iconCls: 'icon-tree-editable' },
+                  { text: 'Tree Grid', premium: true, premiumClass: 'x-fa fa-star app-premium-indicator', component: TreeGridComponent, iconCls: 'icon-tree-grid' },
+                  { text: 'Tree Decorations', premium: true, premiumClass: 'x-fa fa-star app-premium-indicator', component: TreeDecorationsComponent, iconCls: 'icon-tree-decorations' },
+                  { text: 'Heterogeneous Tree', premium: true, premiumClass: 'x-fa fa-star app-premium-indicator', component: HeterogeneousTreeComponent, iconCls: 'icon-heterogeneous-tree' },
+                  { text: 'Tree Reorder', component: TreeReorderComponent, iconCls: 'icon-tree-reorder' }
+              ]
+          },
+  
+          {
+              text: 'Calendar', premium: false, iconCls: 'icon-calendar', children: [
+                  { text: 'Calendar Panel', component: CalendarPanelComponent, iconCls: 'icon-calendar-panel' },
+                  { text: 'Calendar Month View', component: CalendarMonthViewComponent, iconCls: 'icon-calendar-month-view' },
+                  { text: 'Calendar Week View', component: CalendarWeekViewComponent, iconCls: 'icon-calendar-week-view' },
+                  { text: 'Calendar Days View', component: CalendarDaysViewComponent, iconCls: 'icon-calendar-days-view' },
+                  { text: 'Timezone Support', component: CalendarTimezoneSupportComponent, iconCls: 'icon-calendar-timezone' },
+                  { text: 'Drag Resize Validation', component: CalendarDragResizeValidationComponent, iconCls: 'icon-calendar-validation' }
+              ]
+          },
+  
+          {
+              text: 'Charts', premium: false, iconCls: 'icon-charts', children: [
+                  {
+                      text: 'Area', iconCls: 'icon-area-basic', children: [
+                          { text: 'Basic Area', component: BasicAreaComponent, iconCls: 'icon-area-basic' },
+                          { text: 'Stacked Area', component: StackedAreaComponent, iconCls: 'icon-area-stacked' },
+                          { text: 'Full Stacked Area', component: FullStackedAreaComponent, iconCls: 'icon-area-stacked-100' },
+                          { text: 'Negative Values Area', component: NegativeValuesAreaComponent, iconCls: 'icon-area-negative' }
+                      ]
+                  },
+                  {
+                      text: 'Bar', iconCls: 'icon-bar-basic', children: [
+                          { text: 'Basic Bar', component: BasicBarComponent, iconCls: 'icon-bar-basic' },
+                          { text: 'Stacked Bar', component: StackedBarComponent, iconCls: 'icon-bar-stacked' },
+                          { text: 'Full Stacked Bar', component: FullStackedBarComponent, iconCls: 'icon-bar-stacked-100' }
+                      ]
+                  },
+                  { text: 'BoxPlot', component: BoxPlotComponent, iconCls: 'icon-boxplot-charts' },
+                  {
+                      text: 'Column', iconCls: 'icon-column-charts', children: [
+                          { text: 'Basic Column', component: BasicColumnComponent, iconCls: 'icon-column-basic' },
+                          { text: 'Stacked', component: StackedComponent, iconCls: 'icon-column-stacked' },
+                          { text: 'Column With Renderer', component: ColumnWithRendererComponent, iconCls: 'icon-column-renderer' },
+                          { text: 'Multiaxis Column', component: MultiaxisColumnComponent, iconCls: 'icon-column-multi-axis' }
+                      ]
+                  },
+                  {
+                      text: 'Three D Column', iconCls: 'icon-column-3d', children: [
+                          { text: 'Basic 3D Column', component: Basic3DColumnComponent, iconCls: 'icon-column-basic-3d' },
+                          { text: 'Three D Grouped', component: ThreeDGroupedComponent, iconCls: 'icon-column-grouped-3d' },
+                          { text: 'Three D Stacked', component: ThreeDStackedComponent, iconCls: 'icon-column-stacked-3d' },
+                          { text: 'Negative Values', component: NegativeValuesComponent, iconCls: 'icon-column-negative-3d' },
+                          { text: 'Three D Column With Renderer', component: ThreeDColumnWithRendererComponent, iconCls: 'icon-column-renderer-3d' }
+                      ]
+                  },
+                  {
+                      text: 'Financial', iconCls: 'icon-financial-charts', children: [
+                          { text: 'Candlestick', component: CandlestickComponent, iconCls: 'icon-financial-candlestick' },
+                          { text: 'OHLC', component: OHLCComponent, iconCls: 'icon-financial-ohlc' }
+                      ]
+                  },
+                  { text: 'Basic Gauge Chart', iconCls: 'icon-gauge-basic', component: BasicGaugeChartComponent },
+                  {
+                      text: 'Line', iconCls: 'icon-line-charts', children: [
+                          { text: 'Basic Line', component: BasicLineComponent, iconCls: 'icon-line-basic' },
+                          { text: 'Basic Markers', component: BasicMarkersComponent, iconCls: 'icon-line-markers' },
+                          { text: 'Spline', component: SplineComponent, iconCls: 'icon-line-spline' },
+                          { text: 'Spline Markers', component: SplineMarkersComponent, iconCls: 'icon-line-marked-spline' },
+                          { text: 'Plot', component: PlotComponent, iconCls: 'icon-line-plot' },
+                          { text: 'With Renderer', component: WithRendererComponent, iconCls: 'icon-line-renderer' },
+                          { text: 'Realtime', component: RealtimeComponent, iconCls: 'icon-line-real-time' }
+                      ]
+                  },
+                  { text: 'Navigation', component: NavigationComponent, iconCls: 'icon-navigator-charts' },
+                  {
+                      text: 'Pie', iconCls: 'icon-pie-basic', children: [
+                          { text: 'Basic Pie', component: BasicPieComponent, iconCls: 'icon-pie-basic' },
+                          { text: 'Spie', component: SpieComponent, iconCls: 'icon-pie-custom' },
+                          { text: 'Donut', component: DonutComponent, iconCls: 'icon-pie-donut' },
+                          { text: 'Double Donut', component: DoubleDonutComponent, iconCls: 'icon-pie-double-donut' },
+                          { text: 'Three D Pie', component: ThreeDPieComponent, iconCls: 'icon-pie-3d' }
+                      ]
+                  },
+                  {
+                      text: 'Radar', iconCls: 'icon-radar-charts', children: [
+                          { text: 'Basic Radar', component: BasicRadarComponent, iconCls: 'icon-radar-basic' },
+                          { text: 'Filled', component: FilledComponent, iconCls: 'icon-radar-filled' },
+                          { text: 'Marked', component: MarkedComponent, iconCls: 'icon-radar-marked' },
+                          { text: 'Multiaxis', component: MultiaxisComponent, iconCls: 'icon-radar-multi-axis' }
+                      ]
+                  },
+                  {
+                      text: 'Scatter', iconCls: 'icon-scatter-charts', children: [
+                          { text: 'Basic Scatter', component: BasicScatterComponent, iconCls: 'icon-scatter-basic' },
+                          { text: 'Custom Icons', component: CustomIconsComponent, iconCls: 'icon-scatter-custom-icons' },
+                          { text: 'Bubble', component: BubbleComponent, iconCls: 'icon-scatter-bubble' }
+                      ]
+                  }
+              ]
+          },
+  
+          {
+              text: 'D3', premium: false, iconCls: 'icon-d3', children: [
+                  {
+                      text: 'Heatmap', iconCls: 'icon-d3-heatmap', children: [
+                          { text: 'Purchases By Day', component: PurchasesByDayComponent, iconCls: 'icon-d3-view-heatmap-purchases' },
+                          { text: 'Sales Per Employee', component: SalesPerEmployeeComponent, iconCls: 'icon-d3-view-heatmap-sales' },
+                          { text: 'Pivot Heatmap', component: PivotHeatmapComponent, iconCls: 'icon-d3-view-heatmap-pivot' },
+                          { text: 'Configurable Pivot Heatmap', component: ConfigurablePivotHeatmapComponent, iconCls: 'icon-d3-view-heatmap-pivot-configurator' }
+                      ]
+                  },
+                  {
+                      text: 'Hierarchy', iconCls: 'icon-d3-hierarchy', children: [
+                          { text: 'Org Chart', component: OrgChartComponent, iconCls: 'icon-d3-view-sencha-tree' },
+                          { text: 'Pack', component: PackComponent, iconCls: 'icon-d3-view-pack' },
+                          { text: 'Sunburst', component: SunburstComponent, iconCls: 'icon-d3-view-sunburst' },
+                          { text: 'Zoomable Sunburst', component: ZoomableSunburstComponent, iconCls: 'icon-d3-view-sunburst-zoom' },
+                          { text: 'Tree Hierarchy', component: TreeHierarchyComponent, iconCls: 'icon-d3-view-tree' },
+                          { text: 'Tree Map', component: TreeMapComponent, iconCls: 'icon-d3-view-treemap' },
+                          { text: 'Tree Map ToolTip', component: TreeMapToolTipComponent, iconCls: 'icon-d3-view-treemap-tooltip' },
+                          { text: 'Configurable Pivot TreeMap', component: ConfigurablePivotTreeMapComponent, iconCls: 'icon-d3-view-treemap-pivot-configurator' }
+                      ]
+                  }
+              ]
+          },
+          {
+              text: 'Pivot Grids', premium: false, iconCls: 'icon-pivot-grids', children: [
+                  { text: 'Outline Layout', component: OutlineLayoutComponent, iconCls: 'icon-outline-pivot-grid' },
+                  { text: 'Compact Layout', component: CompactLayoutComponent, iconCls: 'icon-compact-pivot-grid' },
+                  { text: 'Tabular Layout', component: TabularLayoutComponent, iconCls: 'icon-tabular-pivot-grid' },
+                  { text: 'Collapsible', component: CollapsibleComponent, iconCls: 'icon-collapsible-pivot-grid' },
+                  { text: 'Data Changes', component: DataChangesComponent, iconCls: 'icon-datachanges-pivot-grid' },
+                  { text: 'Pivot Grid Widgets', component: PivotGridWidgetsComponent, iconCls: 'icon-widgets-pivot-grid' },
+                  { text: 'Drilldown Plugin', component: DrilldownPluginComponent, iconCls: 'icon-drilldown-pivot-grid' },
+                  { text: 'Configurator Plugin', component: ConfiguratorPluginComponent, iconCls: 'icon-configurable-pivot-grid' },
+                  { text: 'Range Editor Plugin', component: RangeEditorPluginComponent, iconCls: 'icon-rangeeditor-pivot-grid' },
+                  { text: 'Exporter Plugin', component: ExporterPluginComponent, iconCls: 'icon-exporter-pivot-grid' }
+              ]
+          }
+          */
     ];
 }
